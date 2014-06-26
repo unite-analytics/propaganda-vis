@@ -1,0 +1,57 @@
+type,date,value
+suicide,1,1
+suicide,2,2
+suicide,3,1
+suicide,4,3
+suicide,5,1
+suicide,6,5
+suicide,7,1
+suicide,8,6
+suicide,9,9
+suicide,10,1
+suicide,11,3
+suicide,12,2
+suicide,13,1
+suicide,14,0
+attack,1,7
+attack,2,6
+attack,3,5
+attack,4,4
+attack,5,3
+attack,6,2
+attack,7,1
+attack,8,1
+attack,9,1
+attack,10,2
+attack,11,3
+attack,12,4
+attack,13,5
+attack,14,2
+bomb,1,0
+bomb,2,2
+bomb,3,5
+bomb,4,0
+bomb,5,0
+bomb,6,0
+bomb,7,1
+bomb,8,5
+bomb,9,1
+bomb,10,2
+bomb,11,3
+bomb,12,2
+bomb,13,5
+bomb,14,3
+road block,1,7
+road block,2,6
+road block,3,5
+road block,4,4
+road block,5,3
+road block,6,2
+road block,7,1
+road block,8,0
+road block,9,1
+road block,10,2
+road block,11,3
+road block,12,2
+road block,13,2
+road block,14,2

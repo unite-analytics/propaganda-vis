@@ -1,0 +1,314 @@
+body{
+    font-size : 13px;
+    font-family: "Noto Sans", Arial, Helvetica;
+    margin: 0px;
+    color : #666;
+}
+
+table{
+}
+
+.page-header{
+    background: none repeat scroll 0 0 #FFFFFF;
+    box-shadow: 0 10px 15px #CCCCCC;
+    left: 0;
+    padding: 5px 0 10px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    height: 320px;
+}
+
+#streamline-title{
+    padding-left:12px;
+    padding-top:1em;
+    font-size:1.2em;
+    color:darkgray;
+    font-style:italic;
+}
+#combo-box-title{
+    padding-left:13px;
+    padding-top:1em;
+}
+.vis-title-investigate{
+    font-size : 17px;
+}
+
+.selected-propaganda-title{
+    color : #F7931E;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.selected-propaganda-dtl{
+    font-size : 15px;
+}
+
+.keyword-cell{
+    background-color: #F7931E;
+    color : #fff;
+    text-align: center;
+    padding : 5px;
+    margin-right: 3px;
+}
+
+.outcome-cell{
+    background-color: #999999;
+    color : #fff;
+    text-align: center;
+    padding : 5px;
+}
+
+.heat-chart-box {
+    width: 20px;
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    margin-right: 4px;
+    background-color : #F7931E;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.rotateText{
+    /*width: 20px;
+    float: left;
+    margin-right: 4px;*/
+
+    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.rotate-text-container .rotateText {
+    width: 20px;
+    /*height: 40px;*/
+    padding-top: 2em;
+    float: left;
+    margin-right: 4px;
+}
+
+.rotate-text-container{
+    padding-top: 40px;
+    padding-bottom: 6px;
+    display: block;
+    float: left;
+    clear: left;
+    vertical-align: bottom;
+}
+
+.heat-amp-box-container{
+    float: left;
+    clear: left;
+    color: white;
+    text-align: center;
+    font-size: .8em;
+}
+
+#vis-outr-cntnr{
+    margin: 300px 0 0;
+    padding: 30px 0;
+}
+
+.vis-timeline-title{
+    font-size : 20px;
+    padding : 20px 0px 20px 10px;
+}
+
+.mode-change-btn{
+    cursor: pointer;
+}
+
+.mode-change-btn-selected{
+    cursor: auto;
+    font-weight: bold;
+}
+
+.vis-time-line-video-data{
+    width : 300px;
+    background-color: #F2F2F2;
+    padding : 20px;
+}
+
+.event-info-name{
+    color : #666666;
+    font-size : 15px;
+    cursor: pointer;
+}
+
+.event-info-date{
+    color : #B3B3B3;
+    font-size : 15px;
+}
+
+/* chart classes ----------------------------------------------------*/
+
+.time-line-axis {
+    stroke: #EEEEEE;
+    stroke-width: 1.5px;
+}
+
+.two-week-rect{
+    fill : #DDDDDD;
+    opacity : 0.8;
+}
+
+.event-time-line-circle{
+    stroke : #FFF;
+    stroke-width : 1px;
+    opacity : 0.5;
+}
+
+/*--------------------------------------------------------------------*/
+
+.view-more-links{
+    color:blue;
+    cursor: pointer;
+}
+
+.view-more-links:hover{
+    text-decoration: underline;
+}
+
+.tooltip{
+    background-color: #ffffff;
+    border : 1px solid #999999;
+    padding : 15px 30px 15px 15px;
+    position: absolute;
+    /*width: 200px;*/
+    z-index: 20;
+}
+
+.tooltip-title{
+    text-align: center;
+}
+
+.layer{
+    opacity: 1;
+}
+
+.layer:hover{
+    /*opacity: 0.8;*/
+}
+
+.incident-tooltip{
+    background-color: #ffffff;
+    border : 1px solid #999999;
+    padding : 15px 30px 15px 15px;
+    position: absolute;
+    width: 200px;
+    z-index: 20;
+}
+
+.incident-tooltip-type {
+    font-weight: bold;
+}
+
+.incident-tooltip-desc{
+    font-size: 10px;
+}
+
+.stremgraph-hover-line{
+    stroke : #fff;
+    stroke-width : 1px;
+}
+
+.streamgraph-tooltip{
+    background-color: #ffffff;
+    border : 1px solid #999999;
+    padding : 5px;
+    position: absolute;
+    width: 100px;
+    z-index: 20;
+    opacity: 0.7;
+}
+
+/*   COMBO BOX CSS   */
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+}
+.custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    /* support: IE7 */
+    *height: 1.7em;
+    *top: 0.1em;
+}
+.custom-combobox-input {
+    margin: 0;
+    padding: 0.3em;
+}
+.custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    /* support: IE7; */
+}
+
+#combo-box-cntnr{
+    padding : 10px 10px;
+}
+
+
+
+
+/*POPUP STYLES -----------------------------------------------------------*/
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0.7;
+    filter: alpha(opacity=50);
+    z-index:100;
+}
+
+#modal {
+    position:fixed;
+    /*background:url(tint20.png) 0 0 repeat;*/
+    background:rgba(0,0,0,0.2);
+    border-radius:14px;
+    padding:8px;
+    box-shadow: 0px 0px 50px #000;
+    width: 950px;
+    height: 485px;
+    z-index:100;
+    
+}
+
+#content {
+    border-radius:8px;
+    background:#fff;
+    
+    position:fixed;
+    /*background:url(tint20.png) 0 0 repeat;*/
+    padding-left:7px;
+    padding-top:7px;
+    padding-bottom:7px;
+    overflow:scroll;
+    width: 70%;
+    height: 70%;
+    z-index:100;
+}
+
+#close {
+    position:absolute;
+    background:url(../img/close.png) 0 0 no-repeat;
+    width:24px;
+    height:27px;
+    display:block;
+    text-indent:-9999px;
+    top:-11px;
+    right:-11px;
+}
+
+

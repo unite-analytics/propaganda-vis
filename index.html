@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="js/select2-3.4.8/select2.css" type="text/css" rel="stylesheet"/>
+    <link href="css/main.css" type="text/css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="js/select2-3.4.8/select2.js"></script>
+
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="js/clsDataProvider.js"></script>
+    <script type="text/javascript" src="js/charts.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+      <script src="js/clsTableWindow.js"></script>
+</head>
+<body>
+
+<div>
+    <!--header part-->
+    <div class="page-header">
+        <div id="combo-box-title">Select propaganda transcript to investigate:</div>
+        <div id="combo-box-cntnr"></div>
+        <div id="streamline-title">Propaganda Prediction: Projected for 14 days post-propaganda</div>
+        <div id="stream-line-chart-cntnr"></div>
+    </div>
+    <!--visualization part-->
+    <div id="vis-outr-cntnr">
+        <div>
+            <table width="940px" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <div class="vis-timeline-title">
+                            Timeline Comparison of Similar Propaganda
+                        </div>
+                        <!--<div style="padding:0px 0px 20px 10px; ">
+                            <table>
+                                <tr>
+                                    <td>Align: </td>
+                                    <td><span id="display-mode-timeline" class="mode-change-btn">TIMELINES</span></td>
+                                    <td>|</td>
+                                    <td><span id="display-mode-sections" class="mode-change-btn">SECTIONS</span></td>
+                                </tr>
+                            </table>
+                        </div>-->
+                    </td>
+                    <td class="vis-time-line-video-data"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="time-line-comparison">
+
+        </div>
+        <div style="padding-left : 10px;">
+            <span id="load-next-charts" class="view-more-links">view more</span>
+        </div>
+    </div>
+</div>
+ <!--MODAL WINDOW DIV-->
+    <!--OVERLAY WHICH GIVES EFFECT OF MODAL WINDOW-->
+    <div id='overlay' style="display:none"></div>
+    <!--MODAL WINDOW DIV-->
+    <div id='modal' style="display:none">
+        <!--CONTAINER OF THE CONTENT-->
+        <div id='content'>
+           
+        </div>
+        <!--CLOSE BUTTON-->
+        <a href='#' id='close'>close</a>
+    </div>
+<script>
+    bootstrap();
+</script>
+
+
+</body>
+</html>
