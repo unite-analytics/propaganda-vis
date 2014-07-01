@@ -45,8 +45,10 @@ function handleOnLoadData() {
             if (global.streamLineChart) {
                 comboSelectedValue = this.options[this.selectedIndex].value;
                 var data = generateDataForStreamGraph();
+                d3.select("#svgId").remove();
                 global.streamLineChart.draw(data);
                 global.comparisonChart.redrawChart();
+
             }
         });
 

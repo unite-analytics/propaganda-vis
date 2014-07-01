@@ -5,13 +5,14 @@
 * Time: 3:37 PM
 * To change this template use File | Settings | File Templates.
 */
-
+var color = d3.scale.category10();
 function clsWordHeatChart(pConfig) {
+   
     var me = this;
     me.renderTo = '';
 
     me.displayNoOfWords = 10;
-
+   
     me.labelContainer = null;
     me.labelHeatMap = null;
     me.dataProvider = null;
@@ -22,7 +23,7 @@ function clsWordHeatChart(pConfig) {
             me[pName] = pConfig[pName];
         }
     };
-
+    
     //-----------------------------------------------------------------------//
     me.draw = function (pSelectedDoc) {
 
@@ -661,7 +662,7 @@ function clsSVGVideoTimeline() {
     //-----------------------------------------------------------------------//
     me.plotEventCirles = function () {
         var y = me.actualHeight / 2;
-
+      
         var scaleDomain = me.x.domain();
         var data = [];
         //get all the circle s in the available date range
@@ -684,28 +685,39 @@ function clsSVGVideoTimeline() {
             .append('circle')
             .attr("class", "event-time-line-circle");
 
-
+        
         me.container.selectAll('.event-time-line-circle')
             .attr("class", "event-time-line-circle")
-            .attr("cx", function (d) { return me.x(d._timestamp); })
+            .attr("cx", function (d) {
+
+                return me.x(d._timestamp);
+            })
             .attr("cy", y)
             .attr("r", me.circleRadius)
-            .attr("fill", me.getEventCircle)
+            //.attr("fill", function (d) { return color(d.tags[0].name) })
+            .attr("fill",me.getEventCircle)
             .on("mouseover", me.handleOnIncidentHover)
             .on("mouseout", me.handleOnIncidentHoverOut)
             .on("mousemove", me.handleOnIncidentMove);
     };
-    //-----------------------------------------------------------------------//
-    me.getEventCircle = function (pEvent) {
-        if (pEvent.type == "suicide") { return '#F7931E'; }
-        else if (pEvent.type == "attack") { return '#D9E021'; }
-        else if (pEvent.type == "bomb") { return '#03A99D'; }
-        else if (pEvent.type == "road block") { return '#D4235A'; }
-        else { return '#0371BC'; }
-    };
+        //-----------------------------------------------------------------------//
+
+    // var color = d3.scale.category10();
+     me.getEventCircle = function (pEvent) {
+         //        if (pEvent.type == "suicide") { return '#F7931E'; }
+         //        else if (pEvent.type == "attack") { return '#D9E021'; }
+         //        else if (pEvent.type == "bomb") { return '#03A99D'; }
+         //        else if (pEvent.type == "road block") { return '#D4235A'; }
+         //        else { return '#0371BC'; }
+       
+         var type = pEvent.tags.length;
+         return color(pEvent.tags[type-1].name);
+     };
+
 
     //-----------------------------------------------------------------------//
     me.changeToSectionsMode = function (pDate) {
+        
         var d2 = me.video._timestamp,
             d1 = pDate;
 
@@ -793,9 +805,21 @@ function clsIncidentHint(pConfig) {
 
     //-----------------------------------------------------------------------//
     me.changeContent = function (d) {
-        me.type.text(d.type);
-        me.description.text(d.description);
+       
+        // me.type.text(d.type);
+        //me.description.text(d.description);
 
+        //change by rizwan
+        var LKeyowrdsStr = '';
+        for (var LLoopIndex = 0; LLoopIndex < d.tags.length; LLoopIndex++) {
+            LKeyowrdsStr += d.tags[LLoopIndex].name;
+
+            if (LLoopIndex < d.tags.length - 1) {
+                LKeyowrdsStr += ', ';
+            }
+        }
+        me.type.text(LKeyowrdsStr);
+        me.description.text(d.summary + " , " + d.content);
     };
 
     //-----------------------------------------------------------------------//
@@ -910,11 +934,11 @@ function clsStreamLineGraph() {
 
     //-----------------------------------------------------------------------//
     me.draw = function (data) {
-
         for (var index in data) {
             var obj = data[index];
             obj.value = +obj.value;
         }
+       // var color = d3.scale.category10();
 
         if (!me.svgTg) {
             //SVG has not been rendered yet
@@ -994,11 +1018,13 @@ function clsStreamLineGraph() {
             .attr("d", function (d) { return me.area(d.values); })
             .attr("title", function (d) { return d.key; })
             .style("fill", function (d, i) {
-                if (d.key == "suicide") { return '#F7931E'; }
-                else if (d.key == "attack") { return '#D9E021'; }
-                else if (d.key == "bomb") { return '#03A99D'; }
-                else if (d.key == "road block") { return '#D4235A'; }
-                else { return '#0371BC'; }
+                //                if (d.key == "suicide") { return '#F7931E'; }
+                //                else if (d.key == "attack") { return '#D9E021'; }
+                //                else if (d.key == "bomb") { return '#03A99D'; }
+                //                else if (d.key == "road block") { return '#D4235A'; }
+                //                else { return '#0371BC'; }
+
+                return color(d.key)
             })
             .on("mouseover", me.handleOnMouseHover)
             .on("mouseout", me.handleOnMouseOut)
@@ -1015,13 +1041,63 @@ function clsStreamLineGraph() {
             .attr("d", function (d) { return me.area(d.values); })
             .attr("title", function (d) { return d.key; })
             .style("fill", function (d, i) {
-                if (d.key == "suicide") { return '#F7931E'; }
-                else if (d.key == "attack") { return '#D9E021'; }
-                else if (d.key == "bomb") { return '#03A99D'; }
-                else if (d.key == "road block") { return '#D4235A'; }
-                else { return '#0371BC'; }
+                //                if (d.key == "suicide") { return '#F7931E'; }
+                //                else if (d.key == "attack") { return '#D9E021'; }
+                //                else if (d.key == "bomb") { return '#03A99D'; }
+                //                else if (d.key == "road block") { return '#D4235A'; }
+                //                else { return '#0371BC'; }
+                return color(d.key)
+
             });
+   
+            createLegend(data);
+     
     };
+
+        showLegend = function (d, i) {
+            return d3.select("#legend svg g.panel").transition().duration(300).attr("transform", "translate(0,0)");
+        };
+
+        hideLegend = function (d, i) {
+            return d3.select("#legend svg g.panel").transition().duration(300).attr("transform", "translate(165,0)");
+        };
+        //legends
+
+        function arrayUnique(array) {
+            var a = array;
+            for (var i = 0; i < a.length; ++i) {
+                for (var j = i + 1; j < a.length; ++j) {
+                    if (a[i].type === a[j].type)
+                        a.splice(j--, 1);
+                }
+            }
+
+            return a;
+        };
+
+        createLegend = function (data) {
+           
+            var data = arrayUnique(data);
+            
+            var keys, legend, legendG, legendHeight, legendWidth;
+            legendWidth = 200;
+            legendHeight = 245;
+            legend = d3.select("#legend").append("svg").attr("width", legendWidth).attr("height", legendHeight).attr("id", "svgId");
+            legendG = legend.append("g").attr("transform", "translate(165,0)").attr("class", "panel");
+            legendG.append("rect").attr("width", legendWidth).attr("height", legendHeight).attr("rx", 4).attr("ry", 4).attr("fill-opacity", 0.5).attr("fill", "white");
+            legendG.on("mouseover", showLegend).on("mouseout", hideLegend);
+            keys = legendG.selectAll("g").data(data).enter().append("g").attr("transform", function (d, i) {
+                return "translate(" + 5 + "," + (10 + 40 * (i + 0)) + ")";
+            });
+            keys.append("rect").attr("width", 20).attr("height", 20).attr("rx", 4).attr("ry", 4).attr("fill", function (d) {
+                return color(d.type);
+            });
+            return keys.append("text").text(function (d) {
+                return d.type;
+            }).attr("text-anchor", "left").attr("dx", "2.3em").attr("dy", "1.3em");
+
+        };
+
 
     //-----------------------------------------------------------------------//
     me.handleOnMouseHover = function (d, i) {
