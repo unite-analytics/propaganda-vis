@@ -26,7 +26,7 @@ function clsWordHeatChart(pConfig) {
     
     //-----------------------------------------------------------------------//
     me.draw = function (pSelectedDoc) {
-
+        
         //me.renderTo.html('');
 
         if (!me.labelContainer)
@@ -491,9 +491,10 @@ function clsVideoTimeline() {
             handleOnIncidentMove: me.handleOnIncidentMove
         });
     };
-
+  
     //-----------------------------------------------------------------------//
     me.changeToSectionsMode = function (pDate) {
+        
         me.svgVideoTimeline.changeToSectionsMode(pDate)
     };
 
@@ -606,7 +607,7 @@ function clsSVGVideoTimeline() {
 
         me.container = me.svg.append('g')
             .attr("transform", "translate(" + me.padding.left + "," + me.padding.top + ")");
-
+        
         //draw the axis
         me.drawAxis();
         me.addRectangelForAfterTwoWeeks();
@@ -615,6 +616,7 @@ function clsSVGVideoTimeline() {
 
     //-----------------------------------------------------------------------//
     me.drawAxis = function () {
+       
         me.x = d3.time.scale()
             .range([0, me.actualWidth]);
 
@@ -662,7 +664,7 @@ function clsSVGVideoTimeline() {
     //-----------------------------------------------------------------------//
     me.plotEventCirles = function () {
         var y = me.actualHeight / 2;
-      
+
         var scaleDomain = me.x.domain();
         var data = [];
         //get all the circle s in the available date range
@@ -673,6 +675,8 @@ function clsSVGVideoTimeline() {
             }
         }
 
+        data = data.slice(0, 20);
+       
         me.container.selectAll('.event-time-line-circle')
             .data(data)
             .exit()
@@ -685,7 +689,7 @@ function clsSVGVideoTimeline() {
             .append('circle')
             .attr("class", "event-time-line-circle");
 
-        
+
         me.container.selectAll('.event-time-line-circle')
             .attr("class", "event-time-line-circle")
             .attr("cx", function (d) {
@@ -694,8 +698,8 @@ function clsSVGVideoTimeline() {
             })
             .attr("cy", y)
             .attr("r", me.circleRadius)
-            //.attr("fill", function (d) { return color(d.tags[0].name) })
-            .attr("fill",me.getEventCircle)
+        //.attr("fill", function (d) { return color(d.tags[0].name) })
+            .attr("fill", me.getEventCircle)
             .on("mouseover", me.handleOnIncidentHover)
             .on("mouseout", me.handleOnIncidentHoverOut)
             .on("mousemove", me.handleOnIncidentMove);
@@ -716,25 +720,25 @@ function clsSVGVideoTimeline() {
 
 
     //-----------------------------------------------------------------------//
-    me.changeToSectionsMode = function (pDate) {
+     me.changeToSectionsMode = function (pDate) {
         
-        var d2 = me.video._timestamp,
+         var d2 = me.video._timestamp,
             d1 = pDate;
 
-        var scaleD = d3.extent(me.events, function (d) { return d._timestamp; }),
+         var scaleD = d3.extent(me.events, function (d) { return d._timestamp; }),
             scaleD1 = scaleD[0],
             scaleD2 = scaleD[1];
 
-        var delta = d2 - d1;
+         var delta = d2 - d1;
 
-        //apply the difference
-        scaleD1 = +scaleD1 + delta;
-        scaleD2 = +scaleD2 + delta;
-
-        me.x.domain([new Date(scaleD1), new Date(scaleD2)]);
-        me.addRectangelForAfterTwoWeeks();
-        me.plotEventCirles();
-    };
+         //apply the difference
+         scaleD1 = +scaleD1 + delta;
+         scaleD2 = +scaleD2 + delta;
+       
+         me.x.domain([new Date(scaleD1), new Date(scaleD2)]);
+         me.addRectangelForAfterTwoWeeks();
+         me.plotEventCirles();
+     };
 
     //-----------------------------------------------------------------------//
     me.changeToTimelineMode = function () {
@@ -790,6 +794,7 @@ function clsIncidentHint(pConfig) {
 
     //-----------------------------------------------------------------------//
     me.updatePosition = function () {
+      
         var currHeight = me.hintContainer.style("height").slice(0, -2),
             currWidth = me.hintContainer.style("width").slice(0, -2);
 
@@ -819,7 +824,8 @@ function clsIncidentHint(pConfig) {
             }
         }
         me.type.text(LKeyowrdsStr);
-        me.description.text(d.summary + " , " + d.content);
+        me.description.text(d.summary + " , " + d.content.slice(0,500)+"...");
+       // me.description.text(d.content);
     };
 
     //-----------------------------------------------------------------------//
@@ -935,10 +941,11 @@ function clsStreamLineGraph() {
     //-----------------------------------------------------------------------//
     me.draw = function (data) {
         for (var index in data) {
+
             var obj = data[index];
             obj.value = +obj.value;
         }
-       // var color = d3.scale.category10();
+        // var color = d3.scale.category10();
 
         if (!me.svgTg) {
             //SVG has not been rendered yet
@@ -1049,9 +1056,9 @@ function clsStreamLineGraph() {
                 return color(d.key)
 
             });
-   
-            createLegend(data);
-     
+      
+        createLegend(data);
+
     };
 
         showLegend = function (d, i) {
