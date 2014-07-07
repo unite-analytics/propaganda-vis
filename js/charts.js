@@ -674,9 +674,15 @@ function clsSVGVideoTimeline() {
                 data.push(event);
             }
         }
+        var rand = [];
+        for (var i = 0; i < data.length; i++) {
+            var test = data[Math.floor(Math.random() * data.length)];
+            rand.push(test);
+        }
+      
 
-        data = data.slice(0, 20);
-       
+        data = rand.slice(0, 20);
+
         me.container.selectAll('.event-time-line-circle')
             .data(data)
             .exit()

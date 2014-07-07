@@ -28,19 +28,18 @@ function clsDataProvider(pConfig){
             me.wordRepeatation = wordRepeatation;
 
             d3.csv("data/dis.csv", function (assocMatrix) {
-
                 me.assocMatrix = assocMatrix;
 
                 // d3.csv("data/incidents.csv", function (incidents) {
                 // d3.json("http://api.crisis.net/item?apikey=53ac8c70ac72b1d11c894031&limit=500&license=cc&after=2013-01-01&before=2013-12-31&sources=vdc_syria,reliefweb,ushahidi", function (incidents) {
 
                 d3.json("data/newIncident.json", function (incidents) {
-               
+
                     me.incidents = incidents.data;
                     me.sortIncidentsByDate();
 
                     d3.csv("data/StreamgraphData.csv", function (streamgraphData) {
-                       
+
                         me.streamgraphData = streamgraphData;
                         //all data is loaded callback the fucntion
                         pCallBack(me);

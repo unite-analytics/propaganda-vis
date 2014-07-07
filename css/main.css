@@ -279,8 +279,9 @@ table{
     border-radius:14px;
     padding:8px;
     box-shadow: 0px 0px 50px #000;
-    width: 950px;
-    height: 485px;
+    /*width: 950px;*/
+    width: 71%;
+    height: 73%;
     z-index:100;
     
 }

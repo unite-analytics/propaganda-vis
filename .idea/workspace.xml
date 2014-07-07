@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cf95168-0a76-4dac-8ca9-e467e110550b" name="Default" comment="">
+    <list default="true" id="1cf95168-0a76-4dac-8ca9-e467e110550b" name="Default" comment="commit">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/charts.js" afterPath="$PROJECT_DIR$/js/charts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/clsDataProvider.js" afterPath="$PROJECT_DIR$/js/clsDataProvider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="time_line_vis.iws" />
@@ -28,7 +31,7 @@
     <file path="/clsMap.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1397651899825" ignored="false" />
     <file path="$PROJECT_DIR$/../dpko/js/clsSourceSelector.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1399292326963" ignored="false" />
     <file path="/clsSourceSelector.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1399292326551" ignored="false" />
-    <file path="/Dummy.txt" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404470993524" ignored="false" />
+    <file path="/Dummy.txt" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404745227651" ignored="false" />
     <file path="$PROJECT_DIR$/../../acabq-vis/doc-explorer/doc-explorer/js/timeLineGenerator.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404143937811" ignored="false" />
     <file path="$PROJECT_DIR$/../../acabq-vis/doc-explorer/doc-explorer/js/clsWordListGenerator.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404122009983" ignored="false" />
     <file path="$PROJECT_DIR$/../../acabq-vis/doc-explorer/doc-explorer/js/library.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404122844225" ignored="false" />
@@ -154,8 +157,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../dpko" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
@@ -210,14 +213,17 @@
       <created>1404471016545</created>
       <updated>1404471016545</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit">
+      <created>1404471152146</created>
+      <updated>1404471152146</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24645257" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -231,6 +237,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -315,9 +322,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/charts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="94" selection-start="798" selection-end="819" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="28" column="94" selection-start="798" selection-end="819" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/bootstrap.js">
@@ -357,9 +362,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/charts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="72" selection-start="7187" selection-end="7187" vertical-scroll-proportion="0.03107861">
-          <folding />
-        </state>
+        <state line="222" column="72" selection-start="7187" selection-end="7187" vertical-scroll-proportion="0.03107861" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/StreamgraphData.csv">
@@ -379,9 +382,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/newIncident.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="34" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="34" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
   </component>
