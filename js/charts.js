@@ -713,16 +713,16 @@ function clsSVGVideoTimeline() {
         //-----------------------------------------------------------------------//
 
     // var color = d3.scale.category10();
-     me.getEventCircle = function (pEvent) {
-         //        if (pEvent.type == "suicide") { return '#F7931E'; }
-         //        else if (pEvent.type == "attack") { return '#D9E021'; }
-         //        else if (pEvent.type == "bomb") { return '#03A99D'; }
-         //        else if (pEvent.type == "road block") { return '#D4235A'; }
-         //        else { return '#0371BC'; }
-       
-         var type = pEvent.tags.length;
-         return color(pEvent.tags[type-1].name);
-     };
+    me.getEventCircle = function (pEvent) {
+        //        if (pEvent.type == "suicide") { return '#F7931E'; }
+        //        else if (pEvent.type == "attack") { return '#D9E021'; }
+        //        else if (pEvent.type == "bomb") { return '#03A99D'; }
+        //        else if (pEvent.type == "road block") { return '#D4235A'; }
+        //        else { return '#0371BC'; }
+        
+        var type = pEvent.tags.length;
+        return color(pEvent.tags[type - 1].name);
+    };
 
 
     //-----------------------------------------------------------------------//
@@ -946,13 +946,14 @@ function clsStreamLineGraph() {
 
     //-----------------------------------------------------------------------//
     me.draw = function (data) {
+        var dateParser = d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ").parse;
         for (var index in data) {
-
+           
             var obj = data[index];
             obj.value = +obj.value;
         }
         // var color = d3.scale.category10();
-
+        
         if (!me.svgTg) {
             //SVG has not been rendered yet
             //Add SVG and necessary tags
@@ -984,7 +985,7 @@ function clsStreamLineGraph() {
                 .range([0, me.width]);
 
             me.xAxis = x;
-
+            
             me.y = d3.scale.linear()
                 .range([me.height - me.margin.top - me.margin.bottom, 0]);
 
@@ -1036,7 +1037,7 @@ function clsStreamLineGraph() {
                 //                else if (d.key == "bomb") { return '#03A99D'; }
                 //                else if (d.key == "road block") { return '#D4235A'; }
                 //                else { return '#0371BC'; }
-
+                
                 return color(d.key)
             })
             .on("mouseover", me.handleOnMouseHover)
@@ -1062,7 +1063,7 @@ function clsStreamLineGraph() {
                 return color(d.key)
 
             });
-      
+
         createLegend(data);
 
     };
@@ -1089,12 +1090,12 @@ function clsStreamLineGraph() {
         };
 
         createLegend = function (data) {
-           
+
             var data = arrayUnique(data);
-            
+
             var keys, legend, legendG, legendHeight, legendWidth;
             legendWidth = 200;
-            legendHeight = 245;
+            legendHeight = 400;
             legend = d3.select("#legend").append("svg").attr("width", legendWidth).attr("height", legendHeight).attr("id", "svgId");
             legendG = legend.append("g").attr("transform", "translate(165,0)").attr("class", "panel");
             legendG.append("rect").attr("width", legendWidth).attr("height", legendHeight).attr("rx", 4).attr("ry", 4).attr("fill-opacity", 0.5).attr("fill", "white");

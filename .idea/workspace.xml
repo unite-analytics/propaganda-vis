@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1cf95168-0a76-4dac-8ca9-e467e110550b" name="Default" comment="commit">
+    <list default="true" id="1cf95168-0a76-4dac-8ca9-e467e110550b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/StreamgraphData2.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ushahidiVdc-all.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bootstrap.js" afterPath="$PROJECT_DIR$/js/bootstrap.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/charts.js" afterPath="$PROJECT_DIR$/js/charts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/clsDataProvider.js" afterPath="$PROJECT_DIR$/js/clsDataProvider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="time_line_vis.iws" />
@@ -31,7 +33,7 @@
     <file path="/clsMap.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1397651899825" ignored="false" />
     <file path="$PROJECT_DIR$/../dpko/js/clsSourceSelector.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1399292326963" ignored="false" />
     <file path="/clsSourceSelector.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1399292326551" ignored="false" />
-    <file path="/Dummy.txt" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404745227651" ignored="false" />
+    <file path="/Dummy.txt" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404997429800" ignored="false" />
     <file path="$PROJECT_DIR$/../../acabq-vis/doc-explorer/doc-explorer/js/timeLineGenerator.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404143937811" ignored="false" />
     <file path="$PROJECT_DIR$/../../acabq-vis/doc-explorer/doc-explorer/js/clsWordListGenerator.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404122009983" ignored="false" />
     <file path="$PROJECT_DIR$/../../acabq-vis/doc-explorer/doc-explorer/js/library.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404122844225" ignored="false" />
@@ -217,7 +219,11 @@
       <created>1404471152146</created>
       <updated>1404471152146</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="commit">
+      <created>1404746516357</created>
+      <updated>1404746516357</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">

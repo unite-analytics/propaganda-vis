@@ -43,6 +43,7 @@ function handleOnLoadData() {
     $("#pdf-combo-box")
         .on("change", function () {
             if (global.streamLineChart) {
+                debugger;
                 comboSelectedValue = this.options[this.selectedIndex].value;
                 var data = generateDataForStreamGraph();
                 d3.select("#svgId").remove();
