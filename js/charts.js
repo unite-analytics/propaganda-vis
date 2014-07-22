@@ -7,12 +7,12 @@
 */
 var color = d3.scale.category10();
 function clsWordHeatChart(pConfig) {
-   
+
     var me = this;
     me.renderTo = '';
 
     me.displayNoOfWords = 10;
-   
+
     me.labelContainer = null;
     me.labelHeatMap = null;
     me.dataProvider = null;
@@ -23,10 +23,10 @@ function clsWordHeatChart(pConfig) {
             me[pName] = pConfig[pName];
         }
     };
-    
+
     //-----------------------------------------------------------------------//
     me.draw = function (pSelectedDoc) {
-        
+
         //me.renderTo.html('');
 
         if (!me.labelContainer)
@@ -226,6 +226,7 @@ function clsTimelineComparisonChart() {
 
         var incident;
         for (var index in test) {
+
             incident = test[index];
             if (incident.name == comboSelectedValue) {
 
@@ -471,6 +472,7 @@ function clsVideoTimeline() {
             .on("mouseout", me.handleOnMouseOut)
             .on("mousemove", me.handleOnMouseMove)
             .on("click", function (d) {
+                console.log(pVideo.pdf);
                 onChartBarClick(pVideo.pdf);
             });
 
@@ -491,10 +493,10 @@ function clsVideoTimeline() {
             handleOnIncidentMove: me.handleOnIncidentMove
         });
     };
-  
+
     //-----------------------------------------------------------------------//
     me.changeToSectionsMode = function (pDate) {
-        
+
         me.svgVideoTimeline.changeToSectionsMode(pDate)
     };
 
@@ -513,24 +515,26 @@ function clsVideoTimeline() {
 
 //---------------Model Popup--------------------------------//
 onChartBarClick = function (documentName) {
-   
+
     var modalForm = new clsTableWindow({
         modal: $('#modal'),
         overlay: $('#overlay'),
         closeCmp: $('#close')
     });
-    $("#content").html('');
+    // $("#content").html('');
     $.ajax({
         url: "docs/" + documentName,
         dataType: "text",
         success: function (data) {
 
+            console.log(data);
+            modalForm.open();
+            $("#content").text(data);
 
-            $("#content").html(data);
         }
 
     });
-    modalForm.open();
+
 }
 
 
@@ -607,7 +611,7 @@ function clsSVGVideoTimeline() {
 
         me.container = me.svg.append('g')
             .attr("transform", "translate(" + me.padding.left + "," + me.padding.top + ")");
-        
+
         //draw the axis
         me.drawAxis();
         me.addRectangelForAfterTwoWeeks();
@@ -616,7 +620,7 @@ function clsSVGVideoTimeline() {
 
     //-----------------------------------------------------------------------//
     me.drawAxis = function () {
-       
+
         me.x = d3.time.scale()
             .range([0, me.actualWidth]);
 
@@ -674,14 +678,14 @@ function clsSVGVideoTimeline() {
                 data.push(event);
             }
         }
-        var rand = [];
-        for (var i = 0; i < data.length; i++) {
-            var test = data[Math.floor(Math.random() * data.length)];
-            rand.push(test);
-        }
-      
+        //        var rand = [];
+        //        for (var i = 0; i < data.length; i++) {
+        //            var test = data[Math.floor(Math.random() * data.length)];
+        //            rand.push(test);
+        //        }
 
-        data = rand.slice(0, 20);
+
+        // data = rand.slice(0, 20);
 
         me.container.selectAll('.event-time-line-circle')
             .data(data)
@@ -710,7 +714,7 @@ function clsSVGVideoTimeline() {
             .on("mouseout", me.handleOnIncidentHoverOut)
             .on("mousemove", me.handleOnIncidentMove);
     };
-        //-----------------------------------------------------------------------//
+    //-----------------------------------------------------------------------//
 
     // var color = d3.scale.category10();
     me.getEventCircle = function (pEvent) {
@@ -719,32 +723,32 @@ function clsSVGVideoTimeline() {
         //        else if (pEvent.type == "bomb") { return '#03A99D'; }
         //        else if (pEvent.type == "road block") { return '#D4235A'; }
         //        else { return '#0371BC'; }
-        
+
         var type = pEvent.tags.length;
         return color(pEvent.tags[type - 1].name);
     };
 
 
     //-----------------------------------------------------------------------//
-     me.changeToSectionsMode = function (pDate) {
-        
-         var d2 = me.video._timestamp,
+    me.changeToSectionsMode = function (pDate) {
+
+        var d2 = me.video._timestamp,
             d1 = pDate;
 
-         var scaleD = d3.extent(me.events, function (d) { return d._timestamp; }),
+        var scaleD = d3.extent(me.events, function (d) { return d._timestamp; }),
             scaleD1 = scaleD[0],
             scaleD2 = scaleD[1];
 
-         var delta = d2 - d1;
+        var delta = d2 - d1;
 
-         //apply the difference
-         scaleD1 = +scaleD1 + delta;
-         scaleD2 = +scaleD2 + delta;
-       
-         me.x.domain([new Date(scaleD1), new Date(scaleD2)]);
-         me.addRectangelForAfterTwoWeeks();
-         me.plotEventCirles();
-     };
+        //apply the difference
+        scaleD1 = +scaleD1 + delta;
+        scaleD2 = +scaleD2 + delta;
+
+        me.x.domain([new Date(scaleD1), new Date(scaleD2)]);
+        me.addRectangelForAfterTwoWeeks();
+        me.plotEventCirles();
+    };
 
     //-----------------------------------------------------------------------//
     me.changeToTimelineMode = function () {
@@ -800,7 +804,7 @@ function clsIncidentHint(pConfig) {
 
     //-----------------------------------------------------------------------//
     me.updatePosition = function () {
-      
+
         var currHeight = me.hintContainer.style("height").slice(0, -2),
             currWidth = me.hintContainer.style("width").slice(0, -2);
 
@@ -816,7 +820,7 @@ function clsIncidentHint(pConfig) {
 
     //-----------------------------------------------------------------------//
     me.changeContent = function (d) {
-       
+
         // me.type.text(d.type);
         //me.description.text(d.description);
 
@@ -830,8 +834,8 @@ function clsIncidentHint(pConfig) {
             }
         }
         me.type.text(LKeyowrdsStr);
-        me.description.text(d.summary + " , " + d.content.slice(0,500)+"...");
-       // me.description.text(d.content);
+        me.description.text(d.summary + " , " + d.content.slice(0, 500) + "...");
+        // me.description.text(d.content);
     };
 
     //-----------------------------------------------------------------------//
@@ -946,14 +950,13 @@ function clsStreamLineGraph() {
 
     //-----------------------------------------------------------------------//
     me.draw = function (data) {
-        var dateParser = d3.time.format("%Y-%m-%dT%H:%M:%S.%LZ").parse;
         for (var index in data) {
-           
+
             var obj = data[index];
             obj.value = +obj.value;
         }
         // var color = d3.scale.category10();
-        
+
         if (!me.svgTg) {
             //SVG has not been rendered yet
             //Add SVG and necessary tags
@@ -985,7 +988,7 @@ function clsStreamLineGraph() {
                 .range([0, me.width]);
 
             me.xAxis = x;
-            
+
             me.y = d3.scale.linear()
                 .range([me.height - me.margin.top - me.margin.bottom, 0]);
 
@@ -1013,6 +1016,12 @@ function clsStreamLineGraph() {
                 });
         }
 
+        var graph = function (data) {
+            data.forEach(function (d) {
+                d.date = d.date;
+                d.value = +d.value;
+            });
+        };
 
         var layers = me.stack(me.nest.entries(data));
         var yMax = d3.max(data, function (d) {
@@ -1037,7 +1046,7 @@ function clsStreamLineGraph() {
                 //                else if (d.key == "bomb") { return '#03A99D'; }
                 //                else if (d.key == "road block") { return '#D4235A'; }
                 //                else { return '#0371BC'; }
-                
+
                 return color(d.key)
             })
             .on("mouseover", me.handleOnMouseHover)
@@ -1068,49 +1077,49 @@ function clsStreamLineGraph() {
 
     };
 
-        showLegend = function (d, i) {
-            return d3.select("#legend svg g.panel").transition().duration(300).attr("transform", "translate(0,0)");
-        };
+    showLegend = function (d, i) {
+        return d3.select("#legend svg g.panel").transition().duration(300).attr("transform", "translate(0,0)");
+    };
 
-        hideLegend = function (d, i) {
-            return d3.select("#legend svg g.panel").transition().duration(300).attr("transform", "translate(165,0)");
-        };
-        //legends
+    hideLegend = function (d, i) {
+        return d3.select("#legend svg g.panel").transition().duration(300).attr("transform", "translate(0,0)");
+    };
+    //legends
 
-        function arrayUnique(array) {
-            var a = array;
-            for (var i = 0; i < a.length; ++i) {
-                for (var j = i + 1; j < a.length; ++j) {
-                    if (a[i].type === a[j].type)
-                        a.splice(j--, 1);
-                }
+    function arrayUnique(array) {
+        var a = array;
+        for (var i = 0; i < a.length; ++i) {
+            for (var j = i + 1; j < a.length; ++j) {
+                if (a[i].type === a[j].type)
+                    a.splice(j--, 1);
             }
+        }
 
-            return a;
-        };
+        return a;
+    };
 
-        createLegend = function (data) {
+    createLegend = function (data) {
 
-            var data = arrayUnique(data);
+        var data = arrayUnique(data);
 
-            var keys, legend, legendG, legendHeight, legendWidth;
-            legendWidth = 200;
-            legendHeight = 400;
-            legend = d3.select("#legend").append("svg").attr("width", legendWidth).attr("height", legendHeight).attr("id", "svgId");
-            legendG = legend.append("g").attr("transform", "translate(165,0)").attr("class", "panel");
-            legendG.append("rect").attr("width", legendWidth).attr("height", legendHeight).attr("rx", 4).attr("ry", 4).attr("fill-opacity", 0.5).attr("fill", "white");
-            legendG.on("mouseover", showLegend).on("mouseout", hideLegend);
-            keys = legendG.selectAll("g").data(data).enter().append("g").attr("transform", function (d, i) {
-                return "translate(" + 5 + "," + (10 + 40 * (i + 0)) + ")";
-            });
-            keys.append("rect").attr("width", 20).attr("height", 20).attr("rx", 4).attr("ry", 4).attr("fill", function (d) {
-                return color(d.type);
-            });
-            return keys.append("text").text(function (d) {
-                return d.type;
-            }).attr("text-anchor", "left").attr("dx", "2.3em").attr("dy", "1.3em");
+        var keys, legend, legendG, legendHeight, legendWidth;
+        legendWidth = 250;
+        legendHeight = 1000;
+        legend = d3.select("#legend").append("svg").attr("width", legendWidth).attr("height", legendHeight).attr("id", "svgId");
+        legendG = legend.append("g").attr("transform", "translate(0,0)").attr("class", "panel");
+        legendG.append("rect").attr("width", legendWidth).attr("height", legendHeight).attr("rx", 4).attr("ry", 4).attr("fill-opacity", 0.5).attr("fill", "white");
+        legendG.on("mouseover", showLegend).on("mouseout", hideLegend);
+        keys = legendG.selectAll("g").data(data).enter().append("g").attr("transform", function (d, i) {
+            return "translate(" + 5 + "," + (10 + 20 * (i + 0)) + ")";
+        });
+        keys.append("rect").attr("width", 15).attr("height", 15).attr("rx", 4).attr("ry", 4).attr("fill", function (d) {
+            return color(d.type);
+        });
+        return keys.append("text").text(function (d) {
+            return d.type;
+        }).attr("text-anchor", "left").attr("dx", "2.3em").attr("dy", "1.3em");
 
-        };
+    };
 
 
     //-----------------------------------------------------------------------//

@@ -254,7 +254,14 @@ table{
 
 #combo-box-cntnr{
     padding : 10px 10px;
+    float:  left;
 }
+#combo-box-doc{
+    padding : 10px 10px;
+    margin-top: 7px;
+    cursor: pointer;
+}
+
 
 
 
@@ -290,15 +297,16 @@ table{
     border-radius:8px;
     background:#fff;
     
-    position:fixed;
     /*background:url(tint20.png) 0 0 repeat;*/
     padding-left:7px;
     padding-top:7px;
     padding-bottom:7px;
     overflow:scroll;
-    width: 70%;
-    height: 70%;
+    width: 99%;
+    margin: 0 auto;
+    height: 98%;
     z-index:100;
+    white-space: pre;
 }
 
 #close {
@@ -315,12 +323,12 @@ table{
 
 #legend {
   position: fixed;
-  top: 100px;
+  top: 50px;
   right: 0px;
-  width: 200px;
-  height: 280px;
-  z-index: 100000;
-  overflow: visible;
+  width: 250px;
+  height: 285px;
+  z-index: 10;
+  overflow: scroll;
 }
 
 
