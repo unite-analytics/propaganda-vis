@@ -724,8 +724,8 @@ function clsSVGVideoTimeline() {
         //        else if (pEvent.type == "road block") { return '#D4235A'; }
         //        else { return '#0371BC'; }
 
-        var type = pEvent.tags.length;
-        return color(pEvent.tags[type - 1].name);
+        var type = pEvent.SSEVM_Event_Desc;
+        return color(type);
     };
 
 
@@ -820,22 +820,26 @@ function clsIncidentHint(pConfig) {
 
     //-----------------------------------------------------------------------//
     me.changeContent = function (d) {
-
+        //debugger;
         // me.type.text(d.type);
         //me.description.text(d.description);
 
         //change by rizwan
-        var LKeyowrdsStr = '';
-        for (var LLoopIndex = 0; LLoopIndex < d.tags.length; LLoopIndex++) {
-            LKeyowrdsStr += d.tags[LLoopIndex].name;
+        //        var LKeyowrdsStr = '';
+        //        for (var LLoopIndex = 0; LLoopIndex < d.tags.length; LLoopIndex++) {
+        //            LKeyowrdsStr += d.tags[LLoopIndex].name;
 
-            if (LLoopIndex < d.tags.length - 1) {
-                LKeyowrdsStr += ', ';
-            }
-        }
-        me.type.text(LKeyowrdsStr);
-        me.description.text(d.summary + " , " + d.content.slice(0, 500) + "...");
+        //            if (LLoopIndex < d.tags.length - 1) {
+        //                LKeyowrdsStr += ', ';
+        //            }
+        //        }
+        //        me.type.text(LKeyowrdsStr);
+        //        me.description.text(d.summary + " , " + d.content.slice(0, 500) + "...");
         // me.description.text(d.content);
+        //debugger;
+        //me.description.text(d.summary + " , " + d.content.slice(0, 500) + "...");
+        me.description.html("<b>"+d.SSEVM_Event_Desc+"</b><br/>Incident City: " + d.IncidentCity + "<br/> Incident Country: " + d.IncidentCountry + "<br/>Reporting agency: " + d.Agency_Person + "<br/>Description: " + d.SSIM_Incident_Desc);
+
     };
 
     //-----------------------------------------------------------------------//
