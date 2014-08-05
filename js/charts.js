@@ -955,7 +955,7 @@ function clsStreamLineGraph() {
 
     //-----------------------------------------------------------------------//
     me.draw = function (data) {
-        //debugger;
+       
         for (var index in data) {
 
             var obj = data[index];

@@ -31,7 +31,7 @@
     <file path="/clsMap.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1397651899825" ignored="false" />
     <file path="$PROJECT_DIR$/../dpko/js/clsSourceSelector.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1399292326963" ignored="false" />
     <file path="/clsSourceSelector.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1399292326551" ignored="false" />
-    <file path="/Dummy.txt" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1407250980066" ignored="false" />
+    <file path="/Dummy.txt" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1407251403598" ignored="false" />
     <file path="$PROJECT_DIR$/../../acabq-vis/doc-explorer/doc-explorer/js/timeLineGenerator.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404143937811" ignored="false" />
     <file path="$PROJECT_DIR$/../../acabq-vis/doc-explorer/doc-explorer/js/clsWordListGenerator.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404122009983" ignored="false" />
     <file path="$PROJECT_DIR$/../../acabq-vis/doc-explorer/doc-explorer/js/library.js" changelist="1cf95168-0a76-4dac-8ca9-e467e110550b" time="1404122844225" ignored="false" />
@@ -58,10 +58,8 @@
       <file leaf-file-name="bootstrap.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/bootstrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="43" selection-start="1572" selection-end="1572" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1407250932676" expanded="true" signature="5883:6045" placeholder="{...}" />
-              </folding>
+            <state line="48" column="43" selection-start="1569" selection-end="1569" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,7 +67,7 @@
       <file leaf-file-name="clsDataProvider.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/clsDataProvider.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="54" selection-start="940" selection-end="940" vertical-scroll-proportion="-0.8888889">
+            <state line="26" column="54" selection-start="874" selection-end="874" vertical-scroll-proportion="-0.8888889">
               <folding />
             </state>
           </provider>
@@ -255,13 +253,18 @@
       <created>1406214920872</created>
       <updated>1406214920872</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="commit">
+      <created>1407251018410</created>
+      <updated>1407251018410</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24645257" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -275,7 +278,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -415,16 +417,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="43" selection-start="1572" selection-end="1572" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1407250932676" expanded="true" signature="5883:6045" placeholder="{...}" />
-          </folding>
+        <state line="48" column="43" selection-start="1569" selection-end="1569" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/clsDataProvider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="54" selection-start="940" selection-end="940" vertical-scroll-proportion="-0.8888889">
+        <state line="26" column="54" selection-start="874" selection-end="874" vertical-scroll-proportion="-0.8888889">
           <folding />
         </state>
       </provider>
