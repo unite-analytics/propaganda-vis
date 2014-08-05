@@ -26,89 +26,86 @@ function clsDataProvider(pConfig) {
 
     //-----------------------------------------------------------------------//
     me.loadData = function (pCallBack) {
+        d3.json("data/DSS.json", function (test) {
 
+            d3.csv("data/data.csv", function (wordRepeatation) {
 
-        d3.csv("data/data.csv", function (wordRepeatation) {
+                me.wordRepeatation = wordRepeatation;
 
-            me.wordRepeatation = wordRepeatation;
+                d3.csv("data/dis.csv", function (assocMatrix) {
+                    me.assocMatrix = assocMatrix;
 
-            d3.csv("data/dis.csv", function (assocMatrix) {
-                me.assocMatrix = assocMatrix;
+                    d3.json("data/DSS.json", function (incidents) {
 
-                d3.json("data/DSS.json", function (incidents) {
+                        me.incidents = incidents;
+                        me.sortIncidentsByDate();
 
-                    me.incidents = incidents;
-                    me.sortIncidentsByDate();
-                    //debugger;
-                    //create a non-duplicate list of all types/tag types
-                    me.incidents.forEach(function (d) {
-                        var lastTag = d.SSEVM_Event_Desc;
-                        uniqueTags.push(lastTag);
-                    })
-                    uniqueTags = uniqueTags.filter(function (elem, pos) {
-                        return uniqueTags.indexOf(elem) == pos;
-                    });
-                    uniqueTags.sort();
-                    console.log(uniqueTags);
-
-                    me.incidents.forEach(function (d) {
-
-                        incidentsShortlist.push({
-                            "date": d._timestamp,
-                            "tag": d.SSEVM_Event_Desc
+                        //create a non-duplicate list of all types/tag types
+                        me.incidents.forEach(function (d) {
+                            var lastTag = d.SSEVM_Event_Desc;
+                            uniqueTags.push(lastTag);
                         })
-                    });
-                    console.log(incidentsShortlist);
+                        uniqueTags = uniqueTags.filter(function (elem, pos) {
+                            return uniqueTags.indexOf(elem) == pos;
+                        });
+                        uniqueTags.sort();
+                        console.log(uniqueTags);
+                       
+                        me.incidents.forEach(function (d) {
+                       
+                            incidentsShortlist.push({
+                                "date": d._timestamp,
+                                "tag": d.SSEVM_Event_Desc
+                            })
+                        });
+                        console.log(incidentsShortlist);
+                        
+                        me.wordRepeatation.forEach(function (d) {
+                            propagandaList.push({
+                                "filename": d.pdf,
+                                "date": d.timestamp
+                            })
+                        });
 
-                    me.wordRepeatation.forEach(function (d) {
-                        propagandaList.push({
-                            "filename": d.pdf,
-                            "date": d.timestamp
-                        })
+                        console.log(propagandaList);
+                        pCallBack(me);
                     });
-
-                    console.log(propagandaList);
-                    pCallBack(me);
                 });
             });
         });
-
     };
 
 
     me.countIncidents = function (day) {
 
         var streamgraphData = [];
-        var incident = [];
+        var incidentTest = [];
         var day1 = new Date(day);
         var day2 = new Date(day);
         var maxday = new Date(day1.setDate(day1.getDate() + 14));
-        //for each unique tag (46 of them)
-        incidentsShortlist.forEach(function (d) {
-            d.date.setHours(0, 0, 0, 0);
-        });
-        incident = incidentsShortlist.filter(function (f) { return f.date > day2 && f.date < maxday });
 
+        incidentTest = incidentsShortlist.filter(function (f) { return f.date > day2 && f.date < maxday });
+       
         uniqueTags.forEach(function (tag) {
-            //debugger;
+
             for (i = 0; i < 14; i++) {
                 var testday = new Date(day2.setDate(day2.getDate() + i));
                 var tempCounter = 0;
-                incident.forEach(function (d) {
-                    d.date.setHours(0, 0, 0, 0);
-                    if (d.tag == tag && +d.date == +testday) {
+                incidentTest.forEach(function (d) {
+                    var indicentDate = new Date(d.date);
+                    indicentDate = new Date(indicentDate.setHours(0, 0, 0, 0));
+                    if (d.tag == tag && +indicentDate == +testday) {
                         tempCounter++;
                     }
                 });
                 // push tag, testday, and tempCounter value
-                //if (tempCounter != 0) {
+
                 //then push tag, date, count to streamgraph;
                 streamgraphData.push({
                     "type": tag,
                     "date": i + 1,
                     "value": tempCounter
                 })
-                //}
                 testday = new Date(day2.setDate(day2.getDate() - i));
 
             }
@@ -159,9 +156,9 @@ function clsDataProvider(pConfig) {
         for (var index in me.incidents) {
             var incident = me.incidents[index];
             incident._timestamp = me.dateParser3(incident.SSIM_Incident_Date);
-            //            if (incident._timestamp == null) {
-            //                incident._timestamp = me.dateParser2(incident.publishedAt);
-            //            }
+//            if (incident._timestamp == null) {
+//                incident._timestamp = me.dateParser2(incident.publishedAt);
+//            }
 
         }
 

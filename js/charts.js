@@ -6,6 +6,7 @@
 * To change this template use File | Settings | File Templates.
 */
 var color = d3.scale.category10();
+var bubbledata = [];
 function clsWordHeatChart(pConfig) {
 
     var me = this;
@@ -675,17 +676,17 @@ function clsSVGVideoTimeline() {
         for (var index in me.events) {
             var event = me.events[index];
             if (+event._timestamp >= +scaleDomain[0] && +event._timestamp <= +scaleDomain[1]) {
+                
                 data.push(event);
+                bubbledata.push(event);
             }
         }
+
         //        var rand = [];
         //        for (var i = 0; i < data.length; i++) {
         //            var test = data[Math.floor(Math.random() * data.length)];
         //            rand.push(test);
         //        }
-
-
-        // data = rand.slice(0, 20);
 
         me.container.selectAll('.event-time-line-circle')
             .data(data)
@@ -723,7 +724,7 @@ function clsSVGVideoTimeline() {
         //        else if (pEvent.type == "bomb") { return '#03A99D'; }
         //        else if (pEvent.type == "road block") { return '#D4235A'; }
         //        else { return '#0371BC'; }
-
+      
         var type = pEvent.SSEVM_Event_Desc;
         return color(type);
     };
@@ -954,6 +955,7 @@ function clsStreamLineGraph() {
 
     //-----------------------------------------------------------------------//
     me.draw = function (data) {
+        //debugger;
         for (var index in data) {
 
             var obj = data[index];
@@ -1026,7 +1028,7 @@ function clsStreamLineGraph() {
                 d.value = +d.value;
             });
         };
-
+       
         var layers = me.stack(me.nest.entries(data));
         var yMax = d3.max(data, function (d) {
             return d.y0 + d.y;

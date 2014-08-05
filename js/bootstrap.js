@@ -10,6 +10,7 @@ var G_NO_OF_NEXT_CHARTS = 10;
 var comboSelectedValue;
 var comboSelectedValueText;
 var global = {};
+var streamgraphData = [];
 function bootstrap() {
     global.dataProvider = new clsDataProvider({});
     global.dataProvider.loadData(handleOnLoadData);
@@ -40,7 +41,7 @@ function handleOnLoadData() {
 
     comboSelectedValue = document.getElementById("pdf-combo-box").options[0].label;
     comboSelectedValueText = document.getElementById("pdf-combo-box").options[0].value;
-    //debugger;
+   
 
     var openSelectedVideo = d3.select("#combo-box-doc")
         .on("click", function () {
@@ -63,14 +64,13 @@ function handleOnLoadData() {
                     })
 
                 //                console.log(comboSelectedValue);
-
+                streamgraphData = [];
                 var data = generateDataForStreamGraph(comboSelectedValueText);
                 d3.select("#svgId").remove();
                 global.streamLineChart.draw(data);
                 global.comparisonChart.redrawChart();
             }
         });
-
 
     //draw the comparison
     global.comparisonChart = new clsTimelineComparisonChart({
@@ -109,7 +109,9 @@ function handleOnLoadData() {
     });
 
     var data = global.comparisonChart.getStreamGraphData();
+
     //global.streamLineChart.draw(global.dataProvider.streamgraphData);
+
     var data = generateDataForStreamGraph(comboSelectedValueText);
     global.streamLineChart.draw(data);
 
@@ -117,9 +119,9 @@ function handleOnLoadData() {
 
     function generateDataForStreamGraph(selectedItem) {
         //debugger;
-        var arr = global.dataProvider.countIncidents(selectedItem);
+        // var arr = global.dataProvider.countIncidents(selectedItem);
         //debugger;
-        return arr;
+        // return arr;
         //        function L_getDataForIncidentType(p_type){
         //            var result = [];
         //            for(index = 1; index <= 14; index++){
@@ -142,8 +144,71 @@ function handleOnLoadData() {
         //        //merge all data
         //        var arr = arr1.concat(arr2, arr3, arr4);
         //        return arr;
+       
+        var eventData = global.dataProvider.getIncidents(),
+        listOfVideos = global.dataProvider.getVideoList(),
+        test = global.dataProvider.getAssocMatrixData()
+        var list = [];
+        var incidentsAfterPropaganda = [];
+        var incidentsAfterPropagandaData = [];
+        var incident;
+        for (var index in test) {
+           
+            incident = test[index];
+            if (incident.name == comboSelectedValue) {
 
+                break;
+            }
+        }
 
+        for (var index in listOfVideos) {
+        
+            var video = listOfVideos[index];
+            video.assocValue = incident[video.pdf];
+        }
 
+        listOfVideos.sort(function (a, b) { return d3.descending(a.assocValue, b.assocValue); })
+        
+        listOfVideos = listOfVideos.slice(0, 10);
+        listOfVideos.forEach(function (d) {
+           
+            incidentsAfterPropaganda = global.dataProvider.countIncidents(d._timestamp);
+            incidentsAfterPropagandaData.push(incidentsAfterPropaganda);
+        });
+
+      
+        
+        for (var i = 0; i < 140; i++) {
+            var incident = [];
+            for (var j = 0; j < incidentsAfterPropagandaData.length; j++) {
+                var ii = incidentsAfterPropagandaData[j][i];
+                incident.push(ii);
+            }
+
+            CountIncident(incident);
+
+        }
+      
+        return streamgraphData;
+    }
+    
+    function CountIncident(Item) {
+       
+       
+        var date;
+        var type;
+        var value=0;
+        Item.forEach(function (d) {
+            
+            date = d.date;
+            type = d.type;
+            value = value + d.value;
+        });
+        streamgraphData.push({
+            "type": type,
+            "date": date,
+            "value": value
+        })
+       
     }
 }
