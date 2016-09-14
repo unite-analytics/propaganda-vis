@@ -1,5 +1,12 @@
 propaganda-vis
 ==============
+# This is a prototype to visualize the effects of propaganda videos inciting violence spread through Youtube.
+The prototype can be seen here: http://unite-analytics.github.io/propaganda-vis/
+
+==============
+
+Configuration advise:
+
 How to change Incident Data?
 1) Loading of all data files are in "me.loadData" function of clsdataProvider.js.
 
