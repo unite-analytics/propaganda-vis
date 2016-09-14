@@ -1,5 +1,4 @@
-propaganda-vis
-==============
+
 # This is a prototype to visualize the effects of propaganda videos inciting violence spread through Youtube.
 The prototype can be seen here: http://unite-analytics.github.io/propaganda-vis/
 
